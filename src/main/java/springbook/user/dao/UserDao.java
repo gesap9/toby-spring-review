@@ -8,11 +8,9 @@ import java.sql.*;
  * @author Jeongjin Kim
  * @since 2017-04-19
  */
-public class UserDao {
-    private Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://localhost/springbook", "com", "com01");
-    }
+public abstract class UserDao {
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
+
 
     public void add(User user) throws SQLException, ClassNotFoundException {
         Connection c = getConnection();
@@ -53,7 +51,7 @@ public class UserDao {
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao dao = new UserDao();
+        UserDao dao = new NUserDao();
 
         User user = new User();
         user.setId("whiteship");
