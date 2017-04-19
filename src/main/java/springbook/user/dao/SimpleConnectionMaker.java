@@ -8,9 +8,8 @@ import java.sql.SQLException;
  * @author Jeongjin Kim
  * @since 2017-04-19
  */
-public class DUserDao extends UserDao {
-    @Override
-    public Connection getConnection() throws ClassNotFoundException, SQLException {
+public class SimpleConnectionMaker {
+    public Connection makeNewConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost/springbook","com","com01");
         return c;
