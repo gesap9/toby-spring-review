@@ -6,7 +6,9 @@ apply plugin: 'java'
 sourceCompatibility = 1.7
 
 repositories {
-    mavenCentral()
+    maven {
+        url "http://10.110.1.12:8889/nexus/content/groups/public/"
+    }
 }
 
 dependencies {
@@ -14,5 +16,6 @@ dependencies {
     compile("mysql:mysql-connector-java:5.1.31")
 
     compile group: 'org.springframework', name: 'spring-context', version: '3.0.7.RELEASE'
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '3.0.7.RELEASE'
     compile 'cglib:cglib:2.2'
 }
